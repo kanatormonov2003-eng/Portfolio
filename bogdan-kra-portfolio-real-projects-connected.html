@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<!-- skill:chrome -->
+<style>
+/* Credit line — bottom-right */
+.design-ui-credit {
+  position: fixed;
+  bottom: 12px;
+  right: 12px;
+  font: 11px/1 system-ui, sans-serif;
+  color: rgba(128,128,128,0.5);
+  pointer-events: none;
+  z-index: 2147483647;
+  transition: opacity 0.4s ease;
+  user-select: none;
+  letter-spacing: 0.02em;
+}
+
+/* Hide chrome on touch devices */
+@media (hover: none) {
+  .design-ui-credit { display: none; }
+}
+
+/* Print fixes */
+@media print {
+  * {
+    transition: none !important;
+    animation: none !important;
+    box-shadow: none !important;
+  }
+  body {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+  .design-ui-credit { display: none !important; }
+}
+
+</style>
+<script>
+(function () {
+    // Design-ui pages are single compositions, so the whole body is editable.
+    function markEditable() {
+        document.body.classList.add('artifact-editable');
+    }
+
+    // Credit badge with idle-fade. Hover devices only.
+    function initChromeUI() {
+        if (!matchMedia('(hover: hover)').matches) return;
+
+        var credit = document.createElement('div');
+        credit.className = 'design-ui-credit';
+        credit.setAttribute('aria-hidden', 'true');
+        credit.innerHTML = '\u{1F49C} by ClickUp Brain';
+        document.body.appendChild(credit);
+
+        var timer = null;
+        var fade = function (out) { credit.style.opacity = out ? '0' : ''; };
+        fade(true);
+        var show = function () {
+            fade(false);
+            clearTimeout(timer);
+            timer = setTimeout(function () { fade(true); }, 3000);
+        };
+        document.addEventListener('mousemove', show);
+        show();
+    }
+
+    function init() {
+        markEditable();
+        initChromeUI();
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();
+
+</script>
+<!-- /skill:chrome -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Богдан Кра: цифровые продукты, AI и веб-платформы</title>
+<meta name="description" content="Богдан Кра создаёт цифровые продукты, AI-системы, веб-платформы и бизнес-интерфейсы.">
+<meta name="theme-color" content="#f7f6f1">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+:root{--bg:oklch(97.5% .009 105);--paper:oklch(99% .006 105);--surface:oklch(94.8% .012 105);--ink:oklch(19% .018 105);--muted:oklch(51% .018 105);--faint:oklch(67% .014 105);--line:oklch(87% .014 105);--accent:oklch(47% .145 258);--accent-soft:oklch(93% .025 258);--accent-deep:oklch(30% .09 258);--good:oklch(56% .10 151);--max:1400px;--r:16px;--rl:24px;--ease:cubic-bezier(.16,1,.3,1);--sans:'Manrope',system-ui,sans-serif;--mono:'DM Mono',monospace}*{box-sizing:border-box}html{scroll-behavior:smooth;overflow-x:hidden}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 var(--sans);overflow-x:hidden;-webkit-font-smoothing:antialiased}body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.1;background-image:radial-gradient(oklch(25% .01 105 / .18) .5px,transparent .5px);background-size:6px 6px}a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}button{cursor:pointer}h1,h2,h3,p{margin:0}h1,h2,h3{text-wrap:balance}.wrap{width:min(calc(100% - 64px),var(--max));margin:auto}.eyebrow,.work-index,.case-kicker,.preview-label{font:500 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase}.eyebrow,.muted{color:var(--muted)}
+.site-header{position:fixed;z-index:30;top:18px;left:50%;transform:translateX(-50%);width:min(calc(100% - 48px),1240px);height:60px;padding:0 10px 0 18px;display:flex;align-items:center;justify-content:space-between;background:oklch(99% .006 105 / .82);border:1px solid oklch(84% .014 105 / .7);box-shadow:0 8px 25px oklch(25% .02 105 / .045);backdrop-filter:blur(12px);border-radius:999px}.brand{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:800;letter-spacing:.04em}.brand-mark{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--bg);font-size:10px}.nav{display:flex;align-items:center;gap:27px}.nav a{font-size:12px;color:var(--muted)}.nav a:hover{color:var(--ink)}.button,.nav-cta{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:44px;padding:11px 17px;border:1px solid var(--ink);border-radius:999px;background:var(--ink);color:var(--paper);font-size:12px;font-weight:700;transition:transform .25s var(--ease),background .25s,border-color .25s}.button:hover,.nav-cta:hover{transform:translateY(-2px);background:var(--accent);border-color:var(--accent)}.button.secondary{background:transparent;color:var(--ink);border-color:var(--line)}.menu-toggle{display:none;border:0;background:transparent;width:44px;height:44px;font-size:18px}
+.hero{padding:178px 0 82px}.hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:80px;align-items:end}.hero h1{max-width:780px;margin-top:20px;font-size:clamp(4rem,7.6vw,8.4rem);line-height:.9;letter-spacing:-.085em}.hero h1 em{font-style:normal;color:var(--accent)}.hero-copy{max-width:500px;margin-top:32px;color:var(--muted);font-size:18px}.hero-actions{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap}.hero-foot{display:flex;justify-content:space-between;gap:24px;margin-top:68px}.availability{display:flex;align-items:center;gap:9px;font:500 11px var(--mono);text-transform:uppercase}.dot{width:8px;height:8px;border-radius:50%;background:var(--good)}.hero-meta{color:var(--muted);font:11px/1.7 var(--mono);text-align:right}.product-wall{position:relative;min-height:520px}.preview-label{position:absolute;top:-18px;right:0;color:var(--faint);font-size:10px}.browser{position:absolute;overflow:hidden;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);box-shadow:0 16px 42px oklch(25% .018 105 / .075)}.browser-bar{height:30px;display:flex;align-items:center;gap:5px;padding:0 11px;background:var(--surface);border-bottom:1px solid var(--line)}.browser-bar i{width:6px;height:6px;border-radius:50%;background:var(--line)}.browser-url{margin-left:8px;color:var(--faint);font:8px var(--mono)}.wall-planet{width:91%;right:0;top:28px;z-index:3;transform:rotate(1deg)}.wall-jol{width:64%;left:0;bottom:40px;z-index:4;transform:rotate(-2deg)}.wall-phoenix{width:57%;right:3%;bottom:8px;z-index:2;transform:rotate(2deg)}
+.planet-ui{height:270px;padding:16px;background:oklch(97% .02 125);font-size:8px}.planet-nav,.jol-top,.phoenix-ui header{display:flex;justify-content:space-between;gap:10px;align-items:center;border-bottom:1px solid var(--line);padding-bottom:12px}.planet-nav b{font-size:12px}.planet-hero{padding:26px 0 18px}.planet-hero h3,.jol-hero h3,.phoenix-hero h3{margin-top:7px;font-size:25px;line-height:.9;letter-spacing:-.08em}.planet-hero p,.jol-hero p,.phoenix-hero p{margin-top:8px;color:var(--muted);font-size:8px}.planet-cards,.phoenix-row{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.planet-card,.phoenix-chip{padding:7px;background:oklch(93% .028 125);border-radius:5px}.planet-card strong,.phoenix-chip b{display:block;font-size:8px}.planet-card small,.phoenix-chip span{display:block;margin-top:4px;color:var(--muted);font-size:6px}.planet-ai{position:absolute;right:16px;bottom:12px;padding:6px 8px;border-radius:999px;background:var(--accent-deep);color:var(--paper);font:8px var(--mono)}.jol-ui{height:215px;padding:15px;background:var(--paper);font-size:8px}.jol-brand{font-size:15px;font-weight:800}.jol-langs{color:var(--muted);font:8px var(--mono)}.jol-hero{padding:21px 0 12px}.search-card{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:5px;padding:7px;border:1px solid var(--line);border-radius:8px;background:var(--surface)}.search-card span{padding:6px;background:var(--paper);border-radius:4px;color:var(--muted)}.search-card b{padding:6px 8px;border-radius:999px;background:var(--accent);color:var(--paper);font-size:7px}.jol-meta{display:flex;gap:7px;margin-top:8px;color:var(--muted);font:7px var(--mono)}.phoenix-ui{height:190px;padding:15px;background:var(--paper);font-size:8px}.phoenix-ui header b{font-size:13px}.phoenix-ui header span{color:var(--muted);font:7px var(--mono)}.phoenix-hero{padding:21px 0 17px}.phoenix-chip{background:var(--surface)}
+.section{padding:116px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:32px;margin-bottom:48px}.section-title{max-width:760px;font-size:clamp(3.1rem,5.8vw,6.2rem);line-height:.92;letter-spacing:-.08em}.section-intro{max-width:350px;color:var(--muted);font-size:14px}.trust{padding:20px 0;border-block:1px solid var(--line)}.trust-line{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;color:var(--muted);font:11px var(--mono);text-transform:uppercase}.trust-line strong{color:var(--ink);font-family:var(--sans)}.work-list{border-top:1px solid var(--line)}.work-item{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:58px;padding:24px 0 78px;border-bottom:1px solid var(--line)}.work-item:nth-child(even){grid-template-columns:330px minmax(0,1fr)}.work-item:nth-child(even) .work-visual{order:2}.work-item:nth-child(even) .work-copy{order:1}.work-visual{position:relative;display:grid;place-items:center;min-height:520px;overflow:hidden;border-radius:var(--rl);background:var(--surface)}.work-copy{display:flex;flex-direction:column;align-items:flex-start;padding-top:18px}.work-index{margin-bottom:28px;color:var(--faint)}.work-copy h3{margin-bottom:18px;font-size:clamp(2.6rem,4.5vw,5.5rem);line-height:.9;letter-spacing:-.085em}.work-copy p{max-width:300px;margin-bottom:24px;color:var(--muted);font-size:15px}.meta-row{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:28px}.tag{padding:7px 9px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font:10px var(--mono)}.arrow-link{padding-bottom:4px;border-bottom:1px solid var(--ink);font-size:12px;font-weight:800}.project-link{margin-top:10px;color:var(--accent);font-size:12px;font-weight:700}.visual-planet{background:oklch(88% .02 125)}.visual-planet .planet-ui{width:90%;height:380px;padding:26px}.visual-planet .planet-hero{padding:42px 0 33px}.visual-planet .planet-hero h3{font-size:clamp(2.5rem,4vw,4rem)}.visual-planet .planet-hero p{font-size:11px}.visual-planet .planet-card{min-height:105px;padding:12px}.visual-planet .planet-card strong{font-size:14px}.visual-planet .planet-card small{font-size:9px}.visual-jol{background:oklch(93% .015 240)}.jol-large{width:86%}.jol-large .jol-ui{height:335px;padding:25px}.jol-large .jol-brand{font-size:20px}.jol-large .jol-langs{font-size:10px}.jol-large .jol-hero{padding:43px 0 26px}.jol-large .jol-hero h3{font-size:43px}.jol-large .jol-hero p{font-size:11px}.jol-large .search-card{gap:9px;padding:10px}.jol-large .search-card span{padding:10px;font-size:10px}.jol-large .search-card b{padding:10px 13px;font-size:9px}.visual-phoenix{background:oklch(94% .012 255)}.phoenix-large{width:86%}.phoenix-large .phoenix-ui{height:350px;padding:26px}.phoenix-large .phoenix-ui header b{font-size:19px}.phoenix-large .phoenix-hero{padding:46px 0 31px}.phoenix-large .phoenix-hero h3{font-size:40px}.phoenix-large .phoenix-hero p{font-size:11px}.phoenix-large .phoenix-chip{padding:12px}.phoenix-large .phoenix-chip b{font-size:12px}.phoenix-large .phoenix-chip span{font-size:9px}
+.split-band{padding:132px 0;background:var(--ink);color:var(--paper)}.split-grid,.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:90px}.split-grid h2{font-size:clamp(3.2rem,6vw,7rem);line-height:.9;letter-spacing:-.085em}.split-copy p{max-width:460px;color:oklch(78% .018 105);font-size:19px}.split-copy .button{margin-top:27px;background:var(--paper);color:var(--ink)}.offer-list{margin-top:68px;border-top:1px solid oklch(40% .02 105)}.offer{display:grid;grid-template-columns:50px 1fr 35%;gap:22px;padding:22px 0;border-bottom:1px solid oklch(40% .02 105)}.offer-num{color:oklch(68% .11 258);font:11px var(--mono)}.offer h3{font-size:21px}.offer p{color:oklch(70% .018 105);font-size:13px}.about{padding-bottom:130px}.about-grid h2{font-size:clamp(3rem,5.6vw,6.3rem);line-height:.9;letter-spacing:-.085em}.about-copy p{max-width:560px;font-size:20px}.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:25px;margin-top:54px;padding-top:20px;border-top:1px solid var(--line)}.fact b{display:block;margin-bottom:7px;font-size:12px}.fact span{color:var(--muted);font-size:12px}.process{border-top:1px solid var(--line);padding-top:34px}.process-grid{display:grid;grid-template-columns:repeat(6,1fr)}.step{min-height:180px;padding:20px 18px 20px 0;border-right:1px solid var(--line)}.step:not(:first-child){padding-left:18px}.step:hover{background:var(--accent-soft)}.step:last-child{border:0}.step-index{color:var(--accent);font:11px var(--mono)}.step h3{margin-top:40px;font-size:16px}.step p{margin-top:8px;color:var(--muted);font-size:12px}.contact{padding:120px 0 70px}.contact-shell{display:grid;grid-template-columns:1fr 380px;gap:80px;padding:74px;border-radius:var(--rl);background:var(--accent-soft);border:1px solid oklch(86% .025 258)}.contact h2{font-size:clamp(3.3rem,6.8vw,8rem);line-height:.86;letter-spacing:-.09em}.contact-copy p{color:var(--muted);font-size:15px}.contact-details{display:grid;gap:10px;margin-top:38px}.contact-details a{width:max-content;padding-bottom:7px;border-bottom:1px solid oklch(65% .08 258);color:var(--accent-deep);font-size:14px}.contact .button{margin-top:27px;background:var(--accent);border-color:var(--accent)}.footer{display:flex;justify-content:space-between;gap:20px;padding:20px 0 34px;color:var(--muted);font:10px var(--mono);text-transform:uppercase}.case-view{display:none;padding:150px 0 100px}.case-view.active{display:block}.home-view.hidden{display:none}.case-top{display:flex;justify-content:space-between;margin-bottom:30px}.case-kicker{color:var(--accent)}.case-back{border-bottom:1px solid var(--ink);font-size:12px}.case-view h1{font-size:clamp(4rem,9vw,10rem);line-height:.84;letter-spacing:-.09em}.case-lede{max-width:650px;margin:32px 0 58px;color:var(--muted);font-size:20px}.case-hero-visual{min-height:560px;margin-bottom:78px;overflow:hidden;border-radius:var(--rl)}.case-body{display:grid;grid-template-columns:220px 1fr;gap:70px;max-width:1050px}.case-index{color:var(--accent);font:11px var(--mono);letter-spacing:.12em}.case-body h2{margin-bottom:20px;font-size:clamp(2rem,4vw,4.2rem);line-height:.95}.case-body p{max-width:650px;margin-bottom:24px;color:var(--muted)}.case-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:42px 0 70px}.case-fact{padding-top:12px;border-top:1px solid var(--line)}.case-fact b{display:block;font-size:12px}.case-fact span{color:var(--muted);font:11px var(--mono)}.case-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}dialog{width:min(560px,calc(100% - 24px));padding:0;border:0;border-radius:var(--rl);background:var(--paper);color:var(--ink);box-shadow:0 25px 80px oklch(20% .02 105 / .22)}dialog::backdrop{background:oklch(17% .018 105 / .38);backdrop-filter:blur(3px)}.form-wrap{padding:32px}.form-head{display:flex;justify-content:space-between;gap:20px;margin-bottom:22px}.form-head h2{margin-top:9px;font-size:32px;line-height:.96}.close{width:36px;height:36px;border:1px solid var(--line);border-radius:50%;background:transparent;font-size:20px}.form-grid{display:grid;gap:14px}.field{display:grid;gap:6px}.field label{color:var(--muted);font:10px var(--mono);letter-spacing:.1em;text-transform:uppercase}.field input,.field select,.field textarea{width:100%;padding:13px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);outline:0}.field textarea{min-height:105px;resize:vertical}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}.form-status{min-height:18px;color:var(--muted);font-size:12px}.form-status.error{color:oklch(52% .15 25)}.form-status.success{color:var(--good)}.form-submit{width:100%}.form-submit:disabled{opacity:.6;cursor:wait}.honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;opacity:0!important;pointer-events:none!important}.reveal{opacity:0;transform:translateY(16px);transition:opacity .7s var(--ease),transform .7s var(--ease)}.reveal.in{opacity:1;transform:none}
+@media(max-width:980px){.wrap{width:min(calc(100% - 48px),var(--max))}.hero-grid,.split-grid,.about-grid{grid-template-columns:1fr}.product-wall{max-width:680px;margin:auto}.work-item,.work-item:nth-child(even){grid-template-columns:1fr;gap:28px}.work-item:nth-child(even) .work-visual,.work-item:nth-child(even) .work-copy{order:initial}.work-visual{min-height:470px}.process-grid{grid-template-columns:repeat(3,1fr)}.contact-shell{grid-template-columns:1fr;gap:38px}.case-body{grid-template-columns:1fr;gap:18px}}
+@media(max-width:680px){.wrap{width:calc(100% - 32px)}.site-header{top:8px;width:calc(100% - 16px);height:58px}.nav{display:none;position:absolute;top:66px;left:0;right:0;flex-direction:column;gap:0;padding:14px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);box-shadow:0 16px 42px oklch(25% .018 105 / .075)}.nav.open{display:flex}.nav a{padding:13px 8px;border-bottom:1px solid var(--line)}.nav-cta{margin-top:8px}.menu-toggle{display:block}.hero{padding-top:130px}.hero h1{font-size:clamp(3.2rem,15vw,5.8rem)}.hero-actions{flex-direction:column}.hero-actions .button{width:100%}.hero-foot{display:block;margin-top:40px}.hero-meta{text-align:left;margin-top:20px}.product-wall{min-height:380px;transform:scale(.88);transform-origin:top center;margin-bottom:-45px}.section{padding:80px 0}.section-head{display:block;margin-bottom:36px}.section-intro{margin-top:18px}.trust-line{flex-direction:column;align-items:flex-start}.work-visual{min-height:355px}.visual-planet .planet-ui{height:270px;padding:18px}.visual-planet .planet-hero{padding:28px 0 22px}.visual-planet .planet-hero h3{font-size:38px}.jol-large,.phoenix-large{width:94%}.jol-large .jol-ui{height:270px;padding:15px}.jol-large .jol-hero{padding:29px 0 19px}.jol-large .jol-hero h3{font-size:30px}.jol-large .search-card{grid-template-columns:1fr 1fr}.jol-large .search-card b{grid-column:span 2;text-align:center}.phoenix-large .phoenix-ui{height:280px;padding:16px}.phoenix-large .phoenix-hero{padding:30px 0 23px}.phoenix-large .phoenix-hero h3{font-size:30px}.split-band{padding:82px 0}.split-grid{gap:30px}.offer{grid-template-columns:28px 1fr}.offer p{grid-column:2}.facts,.case-facts{grid-template-columns:1fr 1fr}.process-grid{grid-template-columns:1fr 1fr}.step:nth-child(n+3){border-top:1px solid var(--line)}.contact{padding-top:76px}.contact-shell{padding:36px 24px;gap:32px}.footer{display:block;line-height:1.8}.footer span{display:block}.case-view{padding-top:120px}.case-lede{font-size:17px}.case-view h1{font-size:clamp(3.5rem,14vw,6.5rem)}.case-hero-visual{min-height:360px}dialog{max-height:calc(100dvh - 20px);overflow:auto}.form-wrap{padding:24px}}
+@media(max-width:380px){.wrap{width:calc(100% - 24px)}.hero h1{font-size:3rem}.product-wall{transform:scale(.77);transform-origin:top left;width:128%;margin-bottom:-75px}.facts,.process-grid{grid-template-columns:1fr}.step{border-right:0!important;border-bottom:1px solid var(--line);padding-left:0!important}}
+</style>
+</head>
+<body>
+<header class="site-header"><a href="#top" class="brand"><span class="brand-mark">BK</span><span>BOGDAN</span></a><nav class="nav" id="nav"><a href="#work">Проекты</a><a href="#services">Услуги</a><a href="#about">Обо мне</a><a href="#contact">Контакты</a><button class="nav-cta" data-open-form>Начать проект ↗</button></nav><button class="menu-toggle" id="menuToggle" aria-label="Открыть меню" aria-expanded="false">☰</button></header>
+<div id="top"></div>
+<main id="homeView" class="home-view">
+<section class="hero wrap"><div class="hero-grid"><div class="reveal"><div class="eyebrow">Создатель цифровых продуктов · AI-разработчик</div><h1>Я создаю цифровые продукты <em>которые работают.</em></h1><p class="hero-copy">AI-продукты, travel-платформы и бизнес-сайты для команд, которым нужна ясная цифровая точка роста.</p><div class="hero-actions"><a class="button" href="#work">Посмотреть проекты ↘</a><button class="button secondary" data-open-form>Начать проект ↗</button></div></div><div class="product-wall reveal"><span class="preview-label">РЕАЛЬНЫЕ ПРОЕКТЫ</span><div class="browser wall-planet"><div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">lets-save-our-planet-frontend.vercel.app</span></div><div class="planet-ui"><div class="planet-nav"><b>Let's Save Our Planet</b><span>Issues · Planet AI</span></div><div class="planet-hero"><div class="eyebrow">FIELD GUIDE / EARTH</div><h3>Eight problems.<br>Clear answers.</h3><p>Environmental issues, explained clearly.</p></div><div class="planet-cards"><div class="planet-card"><strong>Climate</strong><small>Causes · effects · solutions</small></div><div class="planet-card"><strong>Pollution</strong><small>Air · water · plastic</small></div><div class="planet-card"><strong>Nature</strong><small>Forests · oceans</small></div></div><span class="planet-ai">Planet AI · Ask a question</span></div></div><div class="browser wall-jol"><div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">jol.kg / travel</span></div><div class="jol-ui"><div class="jol-top"><span class="jol-brand">jol.kg</span><span class="jol-langs">EN · RU · KY &nbsp; KGS · USD · RUB</span></div><div class="jol-hero"><h3>The long way around.<br>Handled.</h3><p>Bishkek · Osh · the world</p></div><div class="search-card"><span>From · Bishkek</span><span>To · Istanbul</span><span>Passengers · 1</span><b>Search</b></div><div class="jol-meta">No account needed · WhatsApp · human support</div></div></div><div class="browser wall-phoenix"><div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">phoenix / career</span></div><div class="phoenix-ui"><header><b>Феникс</b><span>ОШ · контактный центр</span></header><div class="phoenix-hero"><h3>Начни карьеру<br>в Феникс.</h3><p>Оператор контактного центра. Обучение и поддержка.</p></div><div class="phoenix-row"><div class="phoenix-chip"><b>5/2</b><span>график</span></div><div class="phoenix-chip"><b>2/2</b><span>график</span></div><div class="phoenix-chip"><b>FAQ</b><span>ответы</span></div></div></div></div></div></div><div class="hero-foot reveal"><div class="availability"><span class="dot"></span>Открыт для новых проектов</div><div class="hero-meta">Кыргызстан · работаю с клиентами по всему миру<br>AI · travel · recruitment · web</div></div></section>
+<section class="trust"><div class="wrap trust-line"><strong>Selected work</strong><span>AI / Full-stack</span><span>Travel / Commerce</span><span>Business / Recruiting</span></div></section>
+<section class="section wrap" id="work"><div class="section-head reveal"><div><div class="eyebrow">01 / Избранные проекты</div><h2 class="section-title">Реальные продукты,<br>разные задачи.</h2></div><p class="section-intro">Три проекта, которые показывают мой диапазон: образовательный AI-продукт, travel-интерфейс и recruitment experience для бизнеса.</p></div><div class="work-list">
+<article class="work-item reveal" id="planet"><div class="work-visual visual-planet"><div class="planet-ui"><div class="planet-nav"><b>Let's Save Our Planet</b><span>Topics · Planet AI</span></div><div class="planet-hero"><span class="eyebrow">OPEN FIELD GUIDE</span><h3>Environmental issues,<br>explained clearly.</h3><p>Eight problems, causes, consequences and solutions.</p></div><div class="planet-cards"><div class="planet-card"><strong>Climate Change</strong><small>Causes · consequences</small></div><div class="planet-card"><strong>Air Pollution</strong><small>The risk you breathe</small></div><div class="planet-card"><strong>Renewable Energy</strong><small>The part going right</small></div></div><span class="planet-ai">Planet AI · Gemini</span></div></div><div class="work-copy"><span class="work-index">01 / AI · FULL-STACK · EDUCATION</span><h3>Let's Save<br>Our Planet</h3><p>Экологическая образовательная платформа с интерактивными темами и AI-ассистентом Planet AI, который отвечает на экологические вопросы на основе локальной базы знаний.</p><div class="meta-row"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Vite</span><span class="tag">Express</span><span class="tag">Google Gemini</span><span class="tag">REST API</span></div><a class="arrow-link" href="#work/planet">Открыть кейс ↗</a><a class="project-link" href="https://lets-save-our-planet-frontend.vercel.app/" target="_blank" rel="noopener noreferrer">Открыть проект ↗</a></div></article>
+<article class="work-item reveal" id="jol"><div class="work-visual visual-jol"><div class="browser jol-large"><div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">jol.kg / search</span></div><div class="jol-ui"><div class="jol-top"><span class="jol-brand">jol.kg</span><span class="jol-langs">EN · RU · KY &nbsp; KGS · USD · RUB</span></div><div class="jol-hero"><h3>The long way around.<br>Handled.</h3><p>Real flights, human advice, and a faster answer than another dozen tabs.</p></div><div class="search-card"><span>From · Bishkek</span><span>To · Osh</span><span>Departure · Today</span><b>Search routes</b></div><div class="jol-meta">No account needed · WhatsApp · Manager confirms</div></div></div></div><div class="work-copy"><span class="work-index">02 / TRAVEL · PRODUCT · COMMERCE</span><h3>JOL.KG</h3><p>Интерфейс travel-сервиса, который объединяет поиск авиамаршрута, локальную поддержку и отправку заявки менеджеру в одном понятном сценарии.</p><div class="meta-row"><span class="tag">Bishkek / Osh</span><span class="tag">EN / RU / KY</span><span class="tag">KGS / USD / RUB</span><span class="tag">WhatsApp</span><span class="tag">No registration</span><span class="tag">Responsive</span></div><a class="arrow-link" href="#work/jol">Открыть кейс ↗</a><a class="project-link" href="https://kanatormonov2003-eng.github.io/airplane2/" target="_blank" rel="noopener noreferrer">Открыть проект ↗</a></div></article>
+<article class="work-item reveal" id="phoenix"><div class="work-visual visual-phoenix"><div class="browser phoenix-large"><div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">phoenix / vacancy / osh</span></div><div class="phoenix-ui"><header><b>Феникс</b><span>Вакансия в городе Ош</span></header><div class="phoenix-hero"><h3>Начни карьеру<br>в Феникс.</h3><p>Оператор контактного центра с обучением, поддержкой и профессиональным ростом.</p></div><div class="phoenix-row"><div class="phoenix-chip"><b>5/2</b><span>9 часов в день</span></div><div class="phoenix-chip"><b>2/2</b><span>12 часов в день</span></div><div class="phoenix-chip"><b>FAQ</b><span>всё заранее</span></div></div></div></div></div><div class="work-copy"><span class="work-index">03 / BUSINESS · RECRUITING · WEB</span><h3>Phoenix</h3><p>Digital recruitment experience для контактного центра в Оше: вакансия оператора, условия, графики, обучение, FAQ и заявка кандидата в одном последовательном пути.</p><div class="meta-row"><span class="tag">Ош</span><span class="tag">Вакансия оператора</span><span class="tag">5/2 · 2/2</span><span class="tag">Обучение</span><span class="tag">FAQ</span><span class="tag">Форма заявки</span></div><a class="arrow-link" href="#work/phoenix">Открыть кейс ↗</a><a class="project-link" href="https://kanatormonov2003-eng.github.io/-/" target="_blank" rel="noopener noreferrer">Открыть проект ↗</a></div></article>
+</div></section>
+<section class="split-band" id="services"><div class="wrap"><div class="split-grid reveal"><h2>Что я могу создать для вас?</h2><div class="split-copy"><p>От образовательного AI-продукта до коммерческой платформы или бизнес-сайта, который ведёт человека к следующему действию.</p><button class="button" data-open-form>Расскажите, что вы создаёте ↗</button></div></div><div class="offer-list reveal"><div class="offer"><span class="offer-num">01</span><div><h3>Цифровой продукт</h3><p>Сценарии, интерфейс и реализация вокруг реальной задачи пользователя.</p></div><p>Когда идее нужен не макет, а понятный работающий продукт.</p></div><div class="offer"><span class="offer-num">02</span><div><h3>AI и автоматизация</h3><p>AI-ассистенты и прикладные сценарии с ясными границами использования.</p></div><p>Интеллектуальные возможности без лишней магии.</p></div><div class="offer"><span class="offer-num">03</span><div><h3>Web-платформа</h3><p>Travel, education, commerce и интерфейсы с полноценным пользовательским путём.</p></div><p>От первого экрана до заявки или следующего шага.</p></div><div class="offer"><span class="offer-num">04</span><div><h3>Business website</h3><p>Сайты вакансий, сервисов и команд, которым важно говорить ясно.</p></div><p>Структура, которая помогает человеку принять решение.</p></div></div></div></section>
+<section class="section about wrap" id="about"><div class="about-grid reveal"><h2>Разработка с мышлением продуктового дизайнера.</h2><div class="about-copy"><p>Я создаю цифровые продукты на пересечении дизайна, разработки и AI. Сначала разбираюсь в пользовательском пути, затем собираю интерфейс и нужную техническую основу.</p><div class="facts"><div class="fact"><b>Фокус</b><span>AI products, web platforms, business interfaces</span></div><div class="fact"><b>Подход</b><span>Ясная структура, реальные сценарии, аккуратная реализация</span></div><div class="fact"><b>Технологии</b><span>React, TypeScript, Vite, Node.js, Express, REST API</span></div></div></div></div></section>
+<section class="section wrap"><div class="section-head reveal"><div><div class="eyebrow">04 / Процесс</div><h2 class="section-title">От первой идеи<br>до готовой системы.</h2></div><p class="section-intro">Компактный процесс с достаточной структурой для фокуса и гибкостью для сильных идей.</p></div><div class="process process-grid reveal"><div class="step"><span class="step-index">01</span><h3>Исследование</h3><p>Понять задачу изнутри.</p></div><div class="step"><span class="step-index">02</span><h3>Определение</h3><p>Превратить неопределённость в направление.</p></div><div class="step"><span class="step-index">03</span><h3>Проектирование</h3><p>Сформировать сценарии и визуальный язык.</p></div><div class="step"><span class="step-index">04</span><h3>Разработка</h3><p>Реализовать всё чётко и аккуратно.</p></div><div class="step"><span class="step-index">05</span><h3>Улучшение</h3><p>Довести каждую деталь.</p></div><div class="step"><span class="step-index">06</span><h3>Запуск</h3><p>Передать продукт в следующий этап.</p></div></div></section>
+<section class="contact wrap" id="contact"><div class="contact-shell reveal"><h2>Давайте создадим что-то действительно полезное.</h2><div class="contact-copy"><p>Расскажите, что вы создаёте, что сейчас мешает и каким должен быть сильный результат.</p><div class="contact-details"><a href="https://wa.me/996778156377" target="_blank" rel="noopener noreferrer">+996 778 156 377 ↗</a><span class="muted">Форма заявки готова для подключения.</span></div><button class="button" data-open-form>Начать разговор ↗</button></div></div></section>
+</main>
+<section id="caseView" class="case-view wrap" aria-live="polite"></section>
+<footer class="footer wrap"><span>© 2026 Богдан Кра / Создатель цифровых продуктов</span><span><a href="#work">Проекты</a> · <a href="#about">Обо мне</a> · <a href="#contact">Контакты</a> · <a href="#top">Наверх ↑</a></span></footer>
+<dialog id="projectDialog"><div class="form-wrap"><div class="form-head"><div><div class="eyebrow">Заявка на проект</div><h2>Давайте превратим следующую идею в понятный проект.</h2></div><button class="close" data-close-form aria-label="Закрыть форму">×</button></div><form id="projectForm" class="form-grid" novalidate><div class="field"><label for="name">Имя</label><input id="name" name="name" autocomplete="name" required placeholder="Ваше имя"></div><div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required placeholder="you@company.com"></div><div class="field"><label for="company">Компания (необязательно)</label><input id="company" name="company" placeholder="Компания или проект"></div><div class="field"><label for="type">Тип проекта</label><select id="type" name="type" required><option value="">Выберите вариант</option><option>Цифровой продукт</option><option>AI и автоматизация</option><option>Web-платформа</option><option>Business website</option></select></div><div class="field"><label for="message">Сообщение</label><textarea id="message" name="message" required placeholder="Что вы хотите создать?"></textarea></div><div class="field honeypot" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div><div class="form-status" id="formStatus" role="status"></div><button class="button form-submit" type="submit">Отправить заявку ↗</button></form></div></dialog>
+<script>
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzFYYXzMyEiQYPxlf-diSphgd-3Im-GFYWg3AznU-B8UgHDvIFYNZirXaHu5L1_QiOBBA/exec';
+const data={planet:{name:"Let's Save Our Planet",cat:'AI / FULL-STACK / EDUCATION',desc:'Экологическая образовательная платформа с интерактивными темами и AI-ассистентом Planet AI, который помогает получать ответы по экологическим вопросам.',tone:'visual-planet',url:'https://lets-save-our-planet-frontend.vercel.app/',sections:[['01 / КОНТЕКСТ','Экологическая информация часто разбросана по большим объёмам материалов. Здесь задача была объединить структурированное обучение с быстрым интерактивным поиском.'],['02 / ПОДХОД','Карточки экологических тем дают контекст, а Planet AI помогает задать конкретный вопрос и получить ответ в пределах собственной базы знаний сайта.'],['03 / ПРОДУКТ','Восемь тем: климат, загрязнение, природа и решения. Внутри карточек пользователь переключается между причинами, последствиями и решениями.'],['04 / TECH','React, TypeScript, Vite, Node.js, Express, Google Gemini, REST API и CSS.']]},jol:{name:'JOL.KG',cat:'TRAVEL / PRODUCT / COMMERCE',desc:'Интерфейс travel-сервиса, который объединяет поиск авиамаршрута, локальную поддержку и отправку заявки менеджеру в одном понятном пользовательском сценарии.',tone:'visual-jol',url:'https://kanatormonov2003-eng.github.io/airplane2/',sections:[['01 / КОНТЕКСТ','Пользователю нужен не просто список авиабилетов, а понятный путь от поиска маршрута до контакта с менеджером.'],['02 / ПОДХОД','Поиск маршрута, выбор варианта, заявка без регистрации и подтверждение менеджером. Интерфейс объясняет следующий шаг, а не прячет его.'],['03 / ПРОДУКТ','Travel-платформа для направлений из Bishkek и Osh, с EN / RU / KY, KGS / USD / RUB, WhatsApp и локальной поддержкой.'],['04 / TECH','В кейсе указаны пользовательские возможности, подтверждённые публичной версией сайта.']]},phoenix:{name:'Phoenix',cat:'BUSINESS / RECRUITING / WEB',desc:'Digital recruitment experience для контактного центра в Оше: вакансия оператора, условия, графики, обучение, FAQ и заявка кандидата в одном последовательном пути.',tone:'visual-phoenix',url:'https://kanatormonov2003-eng.github.io/-/',sections:[['01 / КОНТЕКСТ','Кандидату нужно быстро понять вакансию, условия, график, обучение и следующий шаг без длинного поиска по страницам.'],['02 / ПОДХОД','Информация организована как recruitment journey: вакансия, требования, графики, обучение, преимущества, FAQ и форма заявки.'],['03 / ПРОДУКТ','Сайт вакансии оператора контактного центра в Оше. Внутри отражены графики 5/2 и 2/2, обучение с нуля, наставник и путь от заявки до выхода на работу.'],['04 / TECH','Кейс сфокусирован на структуре пользовательского пути и публично доступном интерфейсе, без неподтверждённых технических заявлений.']]}};
+const templates={planet:document.querySelector('#planet .work-visual').innerHTML,jol:document.querySelector('#jol .work-visual').innerHTML,phoenix:document.querySelector('#phoenix .work-visual').innerHTML};const home=document.getElementById('homeView'),caseView=document.getElementById('caseView');
+function renderRoute(){const key=location.hash.startsWith('#work/')?location.hash.split('/')[1]:null;if(!key||!data[key]){home.classList.remove('hidden');caseView.classList.remove('active');caseView.innerHTML='';return}const d=data[key];home.classList.add('hidden');caseView.classList.add('active');caseView.innerHTML=`<div class="case-top"><span class="case-kicker">${d.cat}</span><a class="case-back" href="#work">← Назад к проектам</a></div><h1>${d.name}</h1><p class="case-lede">${d.desc}</p><div class="case-hero-visual ${d.tone}">${templates[key]}</div><div class="case-facts"><div class="case-fact"><b>Формат</b><span>Дизайн продукта + разработка</span></div><div class="case-fact"><b>Фокус</b><span>${d.cat}</span></div><div class="case-fact"><b>Результат</b><span>Публичный интерфейс проекта</span></div></div><div class="case-body">${d.sections.map(s=>`<div class="case-index">${s[0]}</div><div><h2>${s[1].split('. ')[0]}.</h2><p>${s[1]}</p></div>`).join('')}</div><div class="case-actions"><a class="button" href="${d.url}" target="_blank" rel="noopener noreferrer">Открыть проект ↗</a><a class="button secondary" href="#work">Вернуться к проектам</a></div>`;window.scrollTo({top:0,behavior:'smooth'});observe()}
+window.addEventListener('hashchange',renderRoute);const menu=document.getElementById('menuToggle'),nav=document.getElementById('nav');menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',open)});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+const dialog=document.getElementById('projectDialog');document.querySelectorAll('[data-open-form]').forEach(b=>b.addEventListener('click',()=>dialog.showModal()));document.querySelector('[data-close-form]').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});
+const form = document.getElementById('projectForm');
+const status = document.getElementById('formStatus');
+const submitButton = form.querySelector('.form-submit');
+
+form.addEventListener('submit', e => {
+  e.preventDefault();
+
+  status.className = 'form-status';
+  status.textContent = '';
+
+  if (
+    !form.name.value.trim() ||
+    !form.email.value.trim() ||
+    !form.email.value.includes('@') ||
+    !form.type.value ||
+    !form.message.value.trim()
+  ) {
+    status.textContent =
+      'Заполните обязательные поля и попробуйте снова.';
+    status.classList.add('error');
+    return;
+  }
+
+  if (form.website.value) {
+    form.reset();
+    return;
+  }
+
+  submitButton.disabled = true;
+  submitButton.textContent = 'Отправляем заявку…';
+
+  const iframeName = 'google-sheets-submit-frame';
+
+  let iframe = document.querySelector(
+    `iframe[name="${iframeName}"]`
+  );
+
+  if (!iframe) {
+    iframe = document.createElement('iframe');
+    iframe.name = iframeName;
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
+  }
+
+  const submitForm = document.createElement('form');
+
+  submitForm.method = 'POST';
+  submitForm.action = GOOGLE_SCRIPT_URL;
+  submitForm.target = iframeName;
+  submitForm.style.display = 'none';
+
+  const fields = {
+    name: form.name.value.trim(),
+    email: form.email.value.trim(),
+    company: form.company.value.trim(),
+    type: form.type.value,
+    message: form.message.value.trim(),
+    website: ''
+  };
+
+  Object.entries(fields).forEach(([key, value]) => {
+    const input = document.createElement('input');
+
+    input.type = 'hidden';
+    input.name = key;
+    input.value = value;
+
+    submitForm.appendChild(input);
+  });
+
+  document.body.appendChild(submitForm);
+
+  submitForm.submit();
+
+  status.textContent =
+    'Заявка отправлена. Спасибо! Я свяжусь с вами.';
+  status.classList.add('success');
+
+  submitButton.textContent = 'Заявка отправлена ✓';
+
+  form.reset();
+
+  setTimeout(() => {
+    submitButton.disabled = false;
+    submitButton.textContent = 'Отправить заявку ↗';
+    submitForm.remove();
+  }, 2000);
+});
+function observe(){const els=document.querySelectorAll('.reveal:not(.in)');if(!('IntersectionObserver'in window)){els.forEach(e=>e.classList.add('in'));return}const io=new IntersectionObserver(entries=>entries.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}}),{threshold:.12});els.forEach(e=>io.observe(e))}observe();renderRoute();
+</script>
+</body>
+</html>
